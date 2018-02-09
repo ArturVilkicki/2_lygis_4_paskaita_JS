@@ -37,7 +37,39 @@
  <button id="/" type="/" onclick="dalinti()" value="dalinti" style="font-size: 30px;">/</button>
  <button id="=" style="font-size: 30px;">=</button>
  
+ <button type="button" onclick="apskaiciuokKiekReikiaPlyteliu(10,10,10,10,10)"> Apskaiciuok baseino ploti</button>
+ <button type="button" onclick="masyvai()" value="masyvas">Masyvas didejimo tvarka</button>
+ 
  <script>
+ 	function masyvai(){
+ 		var x = [10,20,30,40,60,70,80];
+ 		var y = [15,25,35,45,65,75,85];
+ 		for( var i = 0; i<y.length; i++){
+ 			x.push(y[i]);
+ 		}
+ 		
+ 		for(i = 0; i < x.length - 1; i++){
+ 			for(j = i + 1;j < x.length; j++){
+ 				if(x[i]> x[j]){
+ 					var temp = x[i];
+ 					x[i] = x[j];
+ 					x[j] = temp;
+ 				}
+ 			}
+ 		}
+ 		console.log(x);
+ 		
+ 		
+ 		
+
+ 	}
+ 	function apskaiciuokKiekReikiaPlyteliu(baseinoIlgis,baseinoPlotis,baseinoAukstis,plyteliuPlotis,plyteliuIlgis){
+ 		var baseinoPlotas = baseinoIlgis*baseinoPlotis + 2 * baseinoPlotis * baseinoAukstis + 2 * baseinoIlgis*baseinoAukstis;
+ 		var plyteliuPlotas = plyteliuPlotis*plyteliuIlgis;
+ 		var rezultatas = baseinoPlotas/plyteliuPlotas;
+ 		document.getElementById("atsakymas").innerHTML = rezultatas;
+
+ 	}
  	function sudeti(){
  		var x = parseInt(document.getElementById("pirmas").value);
  		var y = parseInt(document.getElementById("antras").value);
